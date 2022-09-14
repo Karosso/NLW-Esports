@@ -1,15 +1,25 @@
-GET http://localhost:3333/gaames/111/ads
+GET http://localhost:3333/games/e3a94c17-7f69-46da-9e1e-75946cc27856/ads
 
 ###
 GET http://localhost:3333/games
 
 ###
-POST http://localhost:3000/ads
+GET http://localhost:3333/ads/408db121-ef53-4fa1-a5a3-09ac409b83fd/discord
+
+###
+POST http://localhost:3333/games/e3a94c17-7f69-46da-9e1e-75946cc27856/ads
 Content-Type: application/json
 
 {
-    "name": "PoliStation 5",
-    "description": "Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius. n ceita ampola pa arma uma pindureta.",
-    "image_url": "https://images.unsplash.com/photo-1570831739435-6601aa3fa4fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjIzMzQ0NjY2&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
-    "price": 150.5
+    "name": "Jorge Amado",
+    "yearsPlaying": 3,
+    "discord": "amadinho",
+    "weekDays": [
+        1,
+        3,
+        6
+    ],
+    "hoursStart": "1:00",
+    "hoursEnd": "6:33",
+    "useVoiceChannel": true
 }
