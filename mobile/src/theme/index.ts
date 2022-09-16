@@ -20,10 +20,10 @@ export const THEME = {
   },
 
   FONT_FAMILY: {
-    REGULAR: 'Inter_400Regular',
-    SEMI_BOLD: 'Inter_600SemiBold',
-    BOLD: 'Inter_700Bold',
-    BLACK: 'Inter_900Black',
+    REGULAR: 'Inter-Regular',
+    SEMI_BOLD: 'Inter-SemiBold',
+    BOLD: 'Inter-Bold',
+    BLACK: 'Inter-Black',
   },
 
   FONT_SIZE: {

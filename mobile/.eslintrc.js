@@ -7,9 +7,12 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       rules: {
-        '@typescript-eslint/no-shadow': ['error'],
-        'no-shadow': 'off',
-        'no-undef': 'off',
+        'prettier/prettier': 'off',
+        'no-use-before-define': 'off',
+        '@typescript-eslint/no-use-before-define': ['warn'],
+        'react-hooks/exhaustive-deps': 'warn',
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': ['warn'],
       },
     },
   ],
