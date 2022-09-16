@@ -7,9 +7,9 @@ export const styles = StyleSheet.create({
   },
   logo: {
     width: 214,
-    height: 120,
-    marginTop: 74,
-    marginBottom: 48,
+    height: 100,
+    marginTop: 60,
+    marginBottom: 36,
   },
   list: {
     paddingLeft: 32,

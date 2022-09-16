@@ -1,8 +1,19 @@
-import { ImageSourcePropType } from 'react-native';
-
 export interface IGame {
   id: string;
-  name: string;
-  ads: string;
-  cover: ImageSourcePropType;
+  title: string;
+  bannerUrl: string;
+  _count: {
+    ads: number;
+  };
 }
+
+export interface IAds {
+  id: string;
+  name: string;
+  weekDays: string[],
+  useVoiceChannel: boolean,
+  yearsPlaying: number,
+  hoursStart: string,
+  hoursEnd: string,
+}
+
