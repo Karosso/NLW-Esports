@@ -7,7 +7,7 @@ interface ICreateAdBannerProps {}
 export const CreateAdBanner: FC<ICreateAdBannerProps> = ({}) => {
   return (
     <div className="pt-1 mt-8 bg-nlw-gradient self-stretch rounded-lg overflow-hidden">
-      <div className="bg-[#2A2634] px-8 py-6 flex justify-between items-center">
+      <div className="bg-[#2A2634] px-8 py-6 flex justify-between items-center flex-col sm:flex-row">
         <div>
           <strong className="text-2xl text-white font-black block">Não encontrou seu duo?</strong>
           <span className="text-zinc-400 block">Publique um anúncio para encontrar novos players!</span>

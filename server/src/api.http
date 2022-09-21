@@ -1,4 +1,4 @@
-GET http://localhost:3333/games/e3a94c17-7f69-46da-9e1e-75946cc27856/ads
+GET http://localhost:3333/games/46b31757-30ee-45c7-954a-2443d4600608/ads
 
 ###
 GET http://localhost:3333/games
