@@ -6,14 +6,15 @@ import { getWeekDays } from '../../utils/Utils';
 import DuoInfo from '../duoInfo/DuoInfo';
 import { styles } from './DuoCard.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { ActivityIndicator } from 'react-native';
 
 interface DuoCardProps {
   ads: IAds;
-  handleConnect: () => void;
+  handleConnect: (id: string) => void;
+  loading: boolean;
 }
 
-const DuoCard: FC<DuoCardProps> = ({ ads, handleConnect }) => {
-
+const DuoCard: FC<DuoCardProps> = ({ ads, handleConnect, loading }) => {
   return (
     <View style={styles.container}>
       <DuoInfo label="Nome" value={ads.name} />
@@ -26,11 +27,25 @@ const DuoCard: FC<DuoCardProps> = ({ ads, handleConnect }) => {
       <DuoInfo
         label="Chamada de áudio?"
         value={ads.useVoiceChannel ? 'Sim' : 'Não'}
-        valueColor={ads.useVoiceChannel ? THEME.COLORS.SUCCESS : THEME.COLORS.ALERT}
+        valueColor={
+          ads.useVoiceChannel ? THEME.COLORS.SUCCESS : THEME.COLORS.ALERT
+        }
       />
-      <TouchableOpacity style={styles.connect} onPress={handleConnect}>
-        <Icon name="game-controller-outline" size={20} color={THEME.COLORS.TEXT} />
-        <Text style={styles.text}>Conectar</Text>
+      <TouchableOpacity
+        style={styles.connect}
+        onPress={() => handleConnect(ads.id)}>
+        {loading ? (
+          <ActivityIndicator/>
+        ) : (
+          <>
+            <Icon
+              name="game-controller-outline"
+              size={20}
+              color={THEME.COLORS.TEXT}
+            />
+            <Text style={styles.text}>Conectar</Text>
+          </>
+        )}
       </TouchableOpacity>
     </View>
   );

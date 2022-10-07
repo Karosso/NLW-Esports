@@ -10,6 +10,7 @@ import logoImg from '../../assets/logo-nlw-esports.png';
 import Heading from '../../components/heading/Heading';
 import DuoCard from '../../components/duoCard/DuoCard';
 import useGame from './useGame';
+import ConnectModal from '../../components/connectModal/ConnectModal';
 
 const Game: FC<GameScreenProps> = ({
   route: {
@@ -17,14 +18,13 @@ const Game: FC<GameScreenProps> = ({
   },
   navigation,
 }) => {
-
-  const { adsList } = useGame(id);
+  const { adsList, handleConnect, loading, selectedDiscord, handleHideDiscord } = useGame(id);
 
   const emptList = () => (
     <View style={styles.emptyList}>
       <Text style={styles.emptyText}>Sem anúncios para este jogo!</Text>
     </View>
-  )
+  );
 
   return (
     <Backgound>
@@ -53,13 +53,17 @@ const Game: FC<GameScreenProps> = ({
         <FlatList
           data={adsList}
           keyExtractor={item => item.id}
-          renderItem={({item}) => <DuoCard ads={item} handleConnect={() => {}} />}
+          renderItem={({ item }) => (
+            <DuoCard ads={item} handleConnect={handleConnect} loading={loading} />
+          )}
           horizontal
           style={styles.containerList}
           contentContainerStyle={styles.contentList}
           showsHorizontalScrollIndicator={false}
           ListEmptyComponent={emptList}
         />
+
+      <ConnectModal visible={!!selectedDiscord} discord={selectedDiscord} handleClose={handleHideDiscord}  />
       </SafeAreaView>
     </Backgound>
   );

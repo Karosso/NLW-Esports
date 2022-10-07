@@ -28,3 +28,17 @@ export interface AdsResponseDto {
   hoursStart: string,
   hoursEnd: string,
 }
+
+export interface DiscordResonseDto {
+  discord: string;
+}
+
+export interface AdsRequestDto {
+  name: string;
+  yearsPlaying: number;
+  discord: string;
+  weekDays: number[];
+  hoursStart: string;
+  hoursEnd: string;
+  useVoiceChannel: boolean;
+}

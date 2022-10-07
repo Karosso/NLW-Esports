@@ -24,3 +24,12 @@ export const getHoursString = (startHour: number, endHour: number) => {
   const end = convertMinutesToHoursString(endHour);
   return `De ${start} até ${end}`;
 };
+
+export const convertAmpmHours = (ampmHours: string) => {
+  const ampmHour = ampmHours.split(':')[0];
+  const minutes = ampmHours.split(':')[1].split(' ')[0];
+  const ampm = ampmHours.split(' ')[1];
+  const hours24 = ampm === 'AM' ? ampmHour : 12 + Number(ampmHour);
+
+  return `${hours24}:${minutes}`;
+};

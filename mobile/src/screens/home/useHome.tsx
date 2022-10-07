@@ -9,21 +9,21 @@ const useHome = () => {
   const [games, setGames] = useState<IGame[] | null>(null);
   const [firstLoad, setFirstLoad] = useState(true);
 
-  useEffect(() => {
+  const getGameList = useCallback( async () => {
     const gameService = Services();
-    const getGameList = async () => {
-      try {
-        const result = await gameService.getGameList();
-        setGames(result);
-      } catch (error) {
-        console.log({ error });
-      } finally {
-      }
-    };
+    try {
+      const result = await gameService.getGameList();
+      setGames(result);
+    } catch (error) {
+      console.log({ error });
+    } finally {
+    }
+  },[]);
+
+  useEffect(() => {
     firstLoad && getGameList();
     setFirstLoad(false);
-    console.log('getGameList');
-  }, [firstLoad]);
+  }, [firstLoad, getGameList]);
 
   const handleGame = useCallback(
     (game: IGame) => {
@@ -32,9 +32,17 @@ const useHome = () => {
     [navigation],
   );
 
+  const handleAds = useCallback(
+    () => {
+      navigation.navigate('CreateAds', {refreshGameList: getGameList});
+    },
+    [getGameList, navigation],
+  );
+
   return {
     games,
     handleGame,
+    handleAds,
   };
 };
 
