@@ -54,7 +54,7 @@ export default function Home() {
             size={20}
             color={THEME.COLORS.TEXT}
           />
-          <Text style={styles.text}>Conectar</Text>
+          <Text style={styles.text}>Conectar!</Text>
         </TouchableOpacity>
       </SafeAreaView>
     </Backgound>
